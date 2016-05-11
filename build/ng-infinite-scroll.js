@@ -101,7 +101,7 @@ angular.module('infinite-scroll', [])
                   return func.call();
                 } else {
                   if (!timeout) {
-                    return timeout = $interval(later, remaining, 1);
+                    return timeout = $interval(later, remaining, 1, false);
                   }
                 }
               };
@@ -178,7 +178,7 @@ angular.module('infinite-scroll', [])
                 handler();
               }
               return $interval.cancel(checkInterval);
-            }));
+            }), 0, 0, false);
           }
         };
       }
